@@ -7,7 +7,7 @@ public class KeyPickup : MonoBehaviour
     {
         if (collision.CompareTag("Player"))
         {
-            SceneManager.LoadScene("SceneGame2"); // Cambia el nombre si tu escena 2 se llama distinto
+            SceneManager.LoadScene("SceneGame2");
         }
     }
 }

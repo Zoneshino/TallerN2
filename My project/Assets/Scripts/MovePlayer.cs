@@ -25,7 +25,6 @@ public class MovePlayer : MonoBehaviour
     {
         horizontal = Input.GetAxisRaw("Horizontal");
 
-        // Girar al moverse
         if (horizontal != 0)
         {
             Vector3 scale = transform.localScale;

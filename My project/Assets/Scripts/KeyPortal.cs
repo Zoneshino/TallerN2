@@ -4,7 +4,7 @@ using UnityEngine.SceneManagement;
 public class KeyPortal : MonoBehaviour
 {
     [Header("Nombre exacto de la escena a cargar")]
-    public string nextSceneName = "SceneGame2";  // ?? Escena destino
+    public string nextSceneName = "SceneGame2";
 
     void OnTriggerEnter2D(Collider2D other)
     {

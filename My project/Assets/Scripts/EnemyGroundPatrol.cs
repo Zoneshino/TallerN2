@@ -9,7 +9,7 @@ public class EnemyGroundPatrol : MonoBehaviour
     public LayerMask groundLayer;
     public float groundCheckRadius = 0.2f;
 
-    private int direction = 1; // 1 = derecha, -1 = izquierda
+    private int direction = 1;
     private Rigidbody2D rb;
 
     private Vector3 groundCheckOffsetRight;
@@ -19,14 +19,13 @@ public class EnemyGroundPatrol : MonoBehaviour
     {
         rb = GetComponent<Rigidbody2D>();
 
-        // Guarda posición local inicial del groundCheck para ambas direcciones
         groundCheckOffsetRight = groundCheck.localPosition;
         groundCheckOffsetLeft = new Vector3(-groundCheckOffsetRight.x, groundCheckOffsetRight.y, groundCheckOffsetRight.z);
     }
 
     void Update()
     {
-        // Revisa si hay suelo delante
+
         bool isGroundAhead = Physics2D.OverlapCircle(groundCheck.position, groundCheckRadius, groundLayer);
         Debug.Log("Hay suelo adelante: " + isGroundAhead);
 
@@ -42,12 +41,10 @@ public class EnemyGroundPatrol : MonoBehaviour
     {
         direction *= -1;
 
-        // Mueve visualmente el sprite
         Vector3 scale = transform.localScale;
         scale.x = Mathf.Abs(scale.x) * direction;
         transform.localScale = scale;
 
-        // Cambia la posición del groundCheck según dirección
         groundCheck.localPosition = direction == 1 ? groundCheckOffsetRight : groundCheckOffsetLeft;
     }
 
